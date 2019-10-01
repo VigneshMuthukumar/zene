@@ -1,13 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import Login from './../components/Login'
 class LoginPage extends React.Component {
 
     render(){
         return(
-            <div>
-                This is login page
-            </div>
+           <Login {...this.props} />
         )
     }
 }
