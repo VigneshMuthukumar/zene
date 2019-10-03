@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {  Segment, Search , Grid} from "semantic-ui-react";
+import '../App.css'
+import {  Segment, Search , Grid  } from "semantic-ui-react";
 const _ = require('lodash')
 const resultRenderer = ({name , id , images}) => {
   return (
@@ -25,6 +26,7 @@ export default class Header extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
+      console.log(nextProps.artists)
       if(nextProps.artists && nextProps.artists.length > 0)
         return {...prevState, results : nextProps.artists}
       return prevState;

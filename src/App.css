@@ -30,3 +30,6 @@
   margin-top: 0.7rem !important;
   word-spacing: 3px;
 }
+.search-results{
+  position: relative!important;
+}
