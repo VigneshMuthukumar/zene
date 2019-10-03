@@ -1,5 +1,6 @@
 import React , {Component} from 'react';
 import SpotifyLogin from './SpotifyLogin';
+import { Segment } from 'semantic-ui-react';
 
 
 export default class Login extends Component {
@@ -16,11 +17,9 @@ export default class Login extends Component {
     
     render(){
         return (
-            <div>
                 <SpotifyLogin 
                     onSuccess={this.onSuccess}
                     onFailure={this.onFailure}/>
-            </div>
         )
     }
 }

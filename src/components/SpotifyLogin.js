@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Button} from 'semantic-ui-react';
 import PopupWindow from './PopupWindow';
 
 
@@ -39,7 +40,7 @@ class SpotifyLogin extends Component {
 
     render() {
         return (
-            <button onClick={this.onBtnClick}> Login Using Spotify </button>
+            <Button inverted size="huge" color="red" onClick={this.onBtnClick}> Login Using Spotify </Button>
         )
     }
 }
