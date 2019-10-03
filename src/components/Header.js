@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 
-import { Menu , Icon , Button} from 'semantic-ui-react'
+import { Menu , Icon , Button, Container} from 'semantic-ui-react'
 
 export default class Header extends Component {
 
@@ -8,7 +8,12 @@ export default class Header extends Component {
         const access_token = localStorage.getItem('access_token')
         return (
         <div>
-          <Menu stackable inverted style={{borderRadius:0}} size="large">
+          <Menu 
+           inverted 
+           style={{borderRadius:0}} 
+           fixed="top"
+           size="large">
+             <Container>
             <Menu.Item>
                     <Icon name="spotify" size="big"/>
             </Menu.Item>
@@ -23,6 +28,8 @@ export default class Header extends Component {
               Logout
             </Button>
           </Menu.Item>}
+
+             </Container>
           </Menu>
         </div>
         )

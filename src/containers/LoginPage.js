@@ -10,23 +10,22 @@ class LoginPage extends React.Component {
     render(){
         return(
             <Segment
-                inverted
-                textAlign = "center"
                 vertical
                 className="cover"
             >
                 <Segment
-                inverted
                 className="cover-overlay"
                 >
+                    <Container>
                         <Header
                         as="h1"
                         className="cover-title"
                         >
-                        Discover the Music you love.
+                            Discover the Music you love.
                         </Header>
                         <br />
                         <Login {...this.props} />
+                    </Container>
             </Segment>
           </Segment>
         )
