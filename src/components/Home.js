@@ -59,7 +59,7 @@ export default class Home extends Component {
     const {onPlay,onSetTrack , getTracksofAlbum} = this.props;
     return (
        <Container fluid>
-        <Grid inverted style={{marginTop:20}}> 
+        <Grid inverted style={{marginTop:20 , marginBottom : 150}}> 
           <Grid.Column width={5}>
             <Search
               
