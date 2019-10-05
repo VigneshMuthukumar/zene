@@ -1,13 +1,10 @@
-import React, {Component} from 'react';
-import { Button, Icon, Menu, Image, Transition } from 'semantic-ui-react';
-import { PlayButton, Timer, VolumeControl, Progress } from 'react-soundplayer/components';
+import React from 'react';
+import { Button, Icon, Menu } from 'semantic-ui-react';
+import { PlayButton, Timer } from 'react-soundplayer/components';
 import { withCustomAudio } from 'react-soundplayer/addons';
 
 class Player extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
 
   componentDidUpdate() {
     const {activeTrack, onNextTrack} = this.props

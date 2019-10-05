@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import PrivateRoute  from './helpers/PrivateRoute';
 import HomePage from './containers/HomePage';
 import LoginPage from './containers/LoginPage';
-import {  Segment , Grid } from "semantic-ui-react";
+import {  Segment  } from "semantic-ui-react";
 import Header from "./components/Header";
 export const history = createBrowserHistory();
 export default class App extends Component {

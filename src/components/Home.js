@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import '../App.css'
-import {  Card, Search , Grid, Container , Image , Segment , Header, List , Label , Button } from "semantic-ui-react";
+import {  Card, Search , Grid, Container , Image  , Header, List , Label , Button } from "semantic-ui-react";
 import Player from '../containers/PlayerContainer';
 const _ = require('lodash')
 const resultRenderer = ({name , id , images}) => {
   return (
     <div className="result" key={id}>
          <div className="image">
-            <img src={images[1] && images[1].url} />
+            <img src={images[1] && images[1].url} alt="Artist"/>
          </div>
        <div className="content">
          <div className="title">{name}</div>
