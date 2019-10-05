@@ -1,1 +1,9 @@
 export const SEARCH_ARTISTS = 'SEARCH_ARTISTS';
+export const LOGIN = 'LOGIN';
+export const LOGOUT = 'LOGOUT';
+export const GET_ALBUMS = 'GET_ALBUMS';
+export const GET_TRACKS = 'GET_TRACKS';
+export const TRACKS_SET = 'TRACKS_SET';
+export const TRACK_PLAY = 'TRACK_PLAY';
+export const TRACK_NEXT = 'TRACK_NEXT';
+export const TRACK_PREV = 'TRACK_PREV';

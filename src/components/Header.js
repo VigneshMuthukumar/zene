@@ -13,7 +13,7 @@ export default class Header extends Component {
            style={{borderRadius:0}} 
            fixed="top"
            size="large">
-             <Container>
+             <Container fluid>
             <Menu.Item>
                     <Icon name="spotify" size="big"/>
             </Menu.Item>
@@ -24,7 +24,11 @@ export default class Header extends Component {
             <Button color="red"
               as="a"
               style={{ marginLeft: "0.5em" }}
-            >
+              onClick={()=>{
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                this.props.history.push('/login');
+              }}>
               Logout
             </Button>
           </Menu.Item>}

@@ -1,6 +1,5 @@
 import React , {Component} from 'react';
 import SpotifyLogin from './SpotifyLogin';
-import { Segment } from 'semantic-ui-react';
 
 
 export default class Login extends Component {

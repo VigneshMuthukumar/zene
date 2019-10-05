@@ -11,7 +11,7 @@ class Player extends React.Component {
 
   componentDidUpdate() {
     const {activeTrack, onNextTrack} = this.props
-    if(activeTrack && !activeTrack.track.preview_url) {
+    if(activeTrack && !activeTrack.preview_url) {
       onNextTrack(activeTrack)
     }
 
@@ -55,11 +55,6 @@ class Player extends React.Component {
       return (
         <div className="player">
           <ul>
-            <li className="cover">
-              <Transition transitionOnMount animation='scale' duration={500}>
-                <Image src={track && track.album.images[0].url} circular/>
-              </Transition>
-            </li>
             <li className="info">
               <h1 className="h5 nowrap caps flex-auto m0">
                 {trackTitle ? trackTitle : ''}
@@ -102,8 +97,8 @@ class Player extends React.Component {
     return (
       <Menu fixed='bottom' size="large" compact={true} className="player-menu">
         <EnhancedPlayer
-          track={activeTrack ? activeTrack.track : null}
-          streamUrl={activeTrack && activeTrack.track.preview_url ? activeTrack.track.preview_url : 'none'}
+          track={activeTrack ? activeTrack : null}
+          streamUrl={activeTrack && activeTrack.preview_url ? activeTrack.preview_url : 'none'}
           onStartTrack={this.onStartTrack}
           onStopTrack={(soundCloudAudio) => {
             this.onStopTrack(soundCloudAudio)

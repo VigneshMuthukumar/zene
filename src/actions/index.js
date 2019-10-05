@@ -24,3 +24,77 @@ export function searchArtist(value){
 
     }
 }
+export function getAlbumsofArtist(artistId){
+    return dispatch => {
+       return Request.get(`artists/${artistId}/albums`)
+        .then(data => {
+            let allAlbums = data.data.items;
+            let albums = allAlbums.map((obj) => {
+                return {name:obj.name ,id:obj.id,images:obj.images, total_tracks : obj.total_tracks , release_date : obj.release_date}
+            })
+            dispatch ({
+                type: actions.GET_ALBUMS,
+                payload : albums 
+            })
+        })
+        .catch(err => {
+            dispatch ({
+                type: actions.GET_ALBUMS,
+                payload : [] 
+            })
+            console.log(err);
+        })
+
+    }
+}
+export function getTracksofAlbum(albumId){
+    return dispatch => {
+       return Request.get(`albums/${albumId}/tracks`)
+        .then(data => {
+            let allTracks = data.data.items;
+            let tracks = allTracks.map((obj) => {
+                return {name:obj.name ,id:obj.id,preview_url:obj.preview_url,artists:obj.artists}
+            })
+            dispatch ({
+                type: actions.GET_TRACKS,
+                payload : tracks 
+            })
+        })
+        .catch(err => {
+            dispatch ({
+                type: actions.GET_TRACKS,
+                payload : [] 
+            })
+            console.log(err);
+        })
+
+    }
+}
+
+export function setTracks(tracks) {
+    return {
+      type: actions.TRACKS_SET,
+      tracks
+    }
+}
+  
+export function playTrack(track) {
+    return {
+      type: actions.TRACK_PLAY,
+      track
+    }
+}
+  
+export function nextTrack(track) {
+    return {
+      type: actions.TRACK_NEXT,
+      track
+    }
+}
+  
+export function prevTrack(track) {
+    return {
+      type: actions.TRACK_PREV,
+      track
+    }
+}
