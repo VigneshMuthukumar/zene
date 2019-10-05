@@ -8,9 +8,9 @@ Spotify clone application using React + Redux
   
 ## Steps
 ### `git clone https://github.com/VigneshMuthukumar/zene.git`
-    Clone the Github Repository
+Clone the Github Repository
 ### `npm install`
-  Install required dependencies on node_modules.
+Install required dependencies on node_modules.
 ### `npm start`
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
