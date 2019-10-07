@@ -1,8 +1,8 @@
 import * as actions from '../helpers/actionTypes';
 
 const initState = {
-    artists: [],
-    searchTerm: ''
+    tracks: [],
+    activeTrack: null
 }
 
 export default function (state=initState , action){

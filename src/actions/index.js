@@ -98,3 +98,28 @@ export function prevTrack(track) {
       track
     }
 }
+
+export function login(access_token,refresh_token) {
+    return dispatch => {
+        localStorage.setItem('access_token',access_token);
+        localStorage.setItem('refresh_token',refresh_token);
+        dispatch ({
+            type: actions.LOGIN,
+            payload : {
+                access_token,
+            } 
+        })    
+    }
+    
+}
+
+export function logout() {
+    return dispatch => {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      dispatch ({
+        type: actions.LOGOUT,
+        payload : {} 
+    })
+    }
+  }

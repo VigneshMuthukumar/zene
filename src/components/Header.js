@@ -1,11 +1,25 @@
 import React , {Component} from 'react';
 
 import { Menu , Icon , Button, Container} from 'semantic-ui-react'
+import {connect} from 'react-redux'
+import {logout} from "../actions/"
+import { bindActionCreators } from "redux";
 
-export default class Header extends Component {
+const mapDispatchToProps = dispatch => {
+    return {
+      logout: bindActionCreators(logout, dispatch)
+    };
+  };
+
+  const mapStateToProps = (state) => {
+    return {
+      auth: state.AuthReducer.isAuthenticated
+    };
+  }
+class Header extends Component {
 
     render() {
-        const access_token = localStorage.getItem('access_token')
+        const  isAuthenticated  = this.props.auth;
         return (
         <div>
           <Menu 
@@ -20,16 +34,15 @@ export default class Header extends Component {
             <Menu.Item header>Zene Music</Menu.Item>
 
           {
-          access_token && <Menu.Item position="right">  
+          isAuthenticated && <Menu.Item position="right">  
             <Button color="red"
               as="a"
               style={{ marginLeft: "0.5em" }}
               onClick={()=>{
-                localStorage.removeItem('access_token');
-                localStorage.removeItem('refresh_token');
+                this.props.logout()
                 this.props.history.push('/login');
               }}>
-              Logout
+             Logout
             </Button>
           </Menu.Item>}
 
@@ -38,5 +51,9 @@ export default class Header extends Component {
         </div>
         )
       }
-
 }
+
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps) (Header);

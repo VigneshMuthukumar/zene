@@ -16,12 +16,12 @@ export default class App extends Component {
             textAlign="center"
             style={{ minHeight: '100vh', padding: "1em 0em" }}
             vertical>
-              <Header history={history} />
+              <Header {...this.props} history={history} />
             <Router history={history}>
-                <Segment inverted>
+                <div>
                   <Route path="/login" component={LoginPage} />
                   <PrivateRoute exact path="/" component={HomePage} />
-                </Segment>
+                </div>
             </Router>
         </Segment>
       );

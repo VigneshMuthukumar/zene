@@ -1,7 +1,19 @@
 import { combineReducers } from 'redux';
 import SearchReducer from './SearchReducer';
 import TrackReducer from './TrackReducer';
-export default combineReducers({
+import AuthReducer from './AuthReducer'
+const appReducer =  combineReducers({
     SearchReducer,
-    TrackReducer
+    TrackReducer,
+    AuthReducer
 })
+
+const rootReducer = (state, action) => {
+    if (action.type === 'LOGOUT') {
+      state = undefined
+    }
+  
+    return appReducer(state, action)
+  }
+
+  export default rootReducer;

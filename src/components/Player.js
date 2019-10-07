@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Icon, Menu } from 'semantic-ui-react';
 import { PlayButton, Timer } from 'react-soundplayer/components';
 import { withCustomAudio } from 'react-soundplayer/addons';
-
+import '../App.css'
 class Player extends React.Component {
 
 
@@ -17,7 +17,7 @@ class Player extends React.Component {
       'bubbles': true,
       'cancelable': false
     })
-    document.getElementsByClassName("play-button")[0].dispatchEvent(event)
+    document.getElementsByClassName("music-button")[0].dispatchEvent(event)
   }
 
   onStartTrack(soundCloudAudio) {
@@ -48,19 +48,19 @@ class Player extends React.Component {
       const trackTitle = track ? track.name : ''
       const artistName = track ? track.artists[0].name : ''
       const trackDuration = track ? track.duration_ms : ''
-
+      // const albumCover = track ? track.album.images[0].url : ''
       return (
-        <div className="player">
-          <ul>
-            <li className="info">
-              <h1 className="h5 nowrap caps flex-auto m0">
+        <div className="player trailPlayer" >
+            <div className="player-left">
+              <h3 className="h3 nowrap caps flex-auto m0 trackTitle">
                 {trackTitle ? trackTitle : ''}
-              </h1>
-              <h4 className="h5 nowrap caps flex-auto m0">
+              </h3>
+              <h5 className="h4 nowrap caps flex-auto m0 artistName">
                 {artistName ? artistName : ''}
-              </h4>
+              </h5>
+            </div>
 
-              <div className="button-items">
+              <div className="button-items player-center">
 
                 <div id="slider">
                   <div id="elapsed"></div>
@@ -68,25 +68,22 @@ class Player extends React.Component {
 
                 <Timer
                   className="timer"
+                  currentTime={trackDuration}
                   duration={trackDuration ? trackDuration / 1000 : 0}
                   {...props} />
-
-                <div className="controls">
-                  <Button icon={true} circular onClick={() => {onPrevTrack(activeTrack)}}>
+              </div>
+                <div className="controls player-right">
+                  <Button icon={true}  onClick={() => {onPrevTrack(activeTrack)}} className="customControls">
                     <Icon name='step backward' />
                   </Button>
                   <PlayButton
                     id="playButton"
-                    className="ui circular icon button play-button"
+                    className="ui circular icon button play circle outline music-button"
                     {...props}/>
-                  <Button icon={true} circular onClick={() => {onNextTrack(activeTrack)}}>
+                  <Button className="customControls" icon={true} circular onClick={() => {onNextTrack(activeTrack)}}>
                     <Icon name='step forward' />
                   </Button>
                 </div>
-
-              </div>
-            </li>
-          </ul>
         </div>
       );
     });

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import '../App.css'
-import {  Card, Search , Grid, Container , Image  , Header, List , Label , Button } from "semantic-ui-react";
+import {  Card, Search , Grid, Container , Image  , Header, List , Label , Button, Icon } from "semantic-ui-react";
 import Player from '../containers/PlayerContainer';
 const _ = require('lodash')
 const resultRenderer = ({name , id , images}) => {
@@ -62,7 +62,7 @@ export default class Home extends Component {
         <Grid inverted style={{marginTop:20 , marginBottom : 150}}> 
           <Grid.Column width={5}>
             <Search
-              
+              placeholder={"Start typing..."}
               loading={isLoading}
               size="huge"
               onResultSelect={this.handleResultSelect}
@@ -119,24 +119,27 @@ export default class Home extends Component {
                               tracks.map((track, key) => {
                                 return (
                                   <List.Item key={key}>
-                                    <List.Content floated='left'>
-                                      <List.Header className="track-name">{track.name}</List.Header>
-                                      <List.Header className="track-name">{track.artists[0].name}</List.Header>
-                                      
-                                    </List.Content>
-    
-                                    <List.Content floated='right'>
+                                     <List.Content floated='right'>
                                       {
                                         !track.preview_url ?
                                           <Label basic size="mini" color='red' pointing='right'>Stream not available</Label> : null
                                       }
-                                      <Button circular icon='play' content='Play' onClick={
+                                      <Button inverted circular  icon  size="mini" onClick={
                                         () => {
                                           onPlay(track)
                                           onSetTrack(tracks)
                                         }
-                                      } disabled={!track.preview_url}/>
+                                      } disabled={!track.preview_url}>
+                                        <Icon name="play"></Icon>
+                                      </Button>
                                     </List.Content>
+                                    <List.Content className="tracklist">
+                                      <List.Header className="track-name">
+                                      {track.name}
+                                      
+                                      <Header as="h6" color="red" className="track-name" >{track.artists[0].name}</Header>
+                                      </List.Header>
+                                    </List.Content>                                   
                                   </List.Item>
                                 )
                               })

@@ -105,7 +105,7 @@
 }
 
 .button-items {
-  margin-left: 150px;
+  margin-left: 0px;
 }
 
 #slider {
@@ -128,15 +128,17 @@
   font-family: Arial, Sans-Serif;
 }
 
-.controls {
-  margin-top: 20px;
+.customControls {
+  /* margin-top: 20px; */
+  background-color: transparent!important;
+  color:#b3b3b3!important;
 }
 .controls svg:nth-child(2) {
   margin-left: 5px;
   margin-right: 5px;
 }
 
-.play .play-button {
+.play .music-button {
   padding: 0 3px;
   width: 30px;
   height: 30px;
@@ -150,23 +152,23 @@ svg.sb-soundplayer-icon {
   position: relative;
   vertical-align: middle;
 }
-.play .play-button g {
+.play .music-button g {
   stroke: #FEFEFE;
   stroke-width: 1;
   stroke-miterlimit: 10;
 }
-.play .play-button g path {
+.play .music-button g path {
   fill: #FEFEFE;
 }
 
-.play .play-button:hover {
+.play .music-button:hover {
   cursor: pointer;
 }
-.play .play-button:hover g {
+.play .music-button:hover g {
   stroke: #8F4DA9;
   cursor: pointer;
 }
-.play .play-button:hover g path {
+.play .music-button:hover g path {
   fill: #9b59b6;
   cursor: pointer;
 }
@@ -219,4 +221,38 @@ svg.sb-soundplayer-icon {
 }
 .player-menu{
   z-index: 100;
+}
+
+.trailPlayer{
+  display: flex;
+  flex-direction: row;
+  background-color:#282828;
+  min-width: 620px;
+  height:90px;
+  justify-content: space-between;
+  padding: 0 16px;
+  align-items: center;
+}
+.player-left{
+  width: 30%;
+  min-width: 180px;
+  text-align: left;
+}
+.player-center{
+  width: 40%;
+  min-width: 722px;
+}
+.player-right{
+  width:30%;
+  min-width: 180px;
+  justify-content: flex-end;
+}
+.tracklist {
+  text-align: left !important;
+}
+.artistName{
+  margin:0;
+}
+.trackTitle{
+  margin:0;
 }

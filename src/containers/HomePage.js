@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../actions/index";
 import Home from "../components/Home";
+import { Segment } from "semantic-ui-react";
 
 const mapStateToProps = state => {
   const { artists , albums  , tracks} = state.SearchReducer;
@@ -26,7 +27,9 @@ const mapDispatchToProps = dispatch => {
 };
 class HomePage extends React.Component {
   render() {
-    return <Home {...this.props} />;
+    return <Segment inverted>
+      <Home {...this.props} />
+    </Segment>
   }
 }
 

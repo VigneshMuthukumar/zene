@@ -40,7 +40,7 @@ class SpotifyLogin extends Component {
 
     render() {
         return (
-            <Button inverted size="huge" color="red" onClick={this.onBtnClick}> Login Using Spotify </Button>
+            <Button inverted size="huge"  onClick={this.onBtnClick}> Login Using Spotify </Button>
         )
     }
 }
